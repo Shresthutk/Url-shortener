@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- included bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Shorten It</title>
+</head>
+<body>
+    <h1 class="h1 mx-2 my-4 ">Shorten It- Url Shortener </h1>
+    <div class="container">
+
+        <form action="shorturl" method="POST" class="form my-3">
+           <input type="text" name="fullUrl" placeholder="URL" id="url" class="url w-75">
+           <button type="submit" id="btn" class="btn btn-primary">Shorten!</button>
+        </form>
+
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                <th>Full link</th>
+                <th>Shortened Link</th>
+                <th>Clicks</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <% shortUrls.forEach(shortUrl => { %>
+                    
+                    <tr>
+                        <td><a href="<%=shortUrl.full %>"><%=shortUrl.full %></a></td>
+                        <td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
+                        <td><%=shortUrl.clicks %></td>
+
+                    </tr>
+                
+                
+                <%}) %>
+
+              
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
